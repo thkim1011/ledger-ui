@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { createTheme, ThemeProvider } from "@mui/system";
+import Header from "./components/Header";
+import Box from "@mui/material/Box";
 
-function App() {
+const theme = createTheme({
+  palette: {
+    base03: "#002b36",
+    base02: "#073642",
+    base01: "#586e75",
+    base00: "#657b83",
+    base0: "#839496",
+    base1: "#93a1a1",
+    base2: "#eee8d5",
+    base3: "#fdf6e3",
+    yellow: "#b58900",
+    orange: "#cb4b16",
+    red: "#dc322f",
+    magenta: "#d33682",
+    violet: "#6c71c4",
+    blue: "#268bd2",
+    cyan: "#2aa198",
+    green: "#859900",
+  },
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          backgroundColor: "base03",
+          minWidth: "100vw",
+          height: "100vh",
+        }}
+      >
+        <Header />
+      </Box>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
